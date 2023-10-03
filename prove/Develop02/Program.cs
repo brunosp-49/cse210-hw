@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 
+// I added to option delete, it deletes the file and clean the memory just passing the file name.
+
 class JournalEntry
 {
     public DateTime Date { get; set; }
@@ -94,10 +96,10 @@ class Journal
                 while (!reader.EndOfStream)
                 {
                     DateTime date = DateTime.ParseExact(reader.ReadLine().Substring(6), "dd/MM/yyyy", null);
-                    string prompt = reader.ReadLine().Substring(8); // Remove "Prompt: "
-                    string response = reader.ReadLine(); // Remove "Response: "
+                    string prompt = reader.ReadLine().Substring(8);
+                    string response = reader.ReadLine();
                     entries.Add(new JournalEntry(date, prompt, response));
-                    reader.ReadLine(); // Read the empty line
+                    reader.ReadLine();
                 }
             }
             Console.WriteLine("Journal loaded from file successfully!");
