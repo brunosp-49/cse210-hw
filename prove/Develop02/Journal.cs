@@ -4,7 +4,7 @@ using System.IO;
 
 class Journal
 {
-    private List<JournalEntry> entries = new List<JournalEntry>();
+    public List<JournalEntry> entries = new List<JournalEntry>();
 
     public void AddEntry()
     {
