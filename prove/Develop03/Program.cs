@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading;
 
 
+// I'v chosen the second idea for creative and exceeding requirements: Have your program work with a library of scriptures rather than a single one. Choose scriptures at random to present to the user.
+
 class Program
 {
     static void Main(string[] args)

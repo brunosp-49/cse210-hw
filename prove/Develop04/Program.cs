@@ -1,9 +1,28 @@
-using System;
-
-class Program
+public class Person
 {
-    static void Main(string[] args)
+    private string name;
+    private int age;
+
+    public void SetName(string newName)
     {
-        Console.WriteLine("Hello Develop05 World!");
+        name = newName;
+    }
+
+    public string GetName()
+    {
+        return name;
+    }
+
+    public void SetAge(int newAge)
+    {
+        if (newAge >= 0)
+        {
+            age = newAge;
+        }
+    }
+
+    public int GetAge()
+    {
+        return age;
     }
 }
