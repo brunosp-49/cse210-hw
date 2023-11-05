@@ -4,44 +4,48 @@ using System.Threading;
 
 public abstract class MindfulnessActivity
 {
-    public string Name { get; protected set; }
-    public string Description { get; protected set; }
-    public int Duration { get; protected set; }
+    protected string _name;
+    protected string _description;
+    protected int _duration;
+
+    public string Name { get => _name; protected set => _name = value; }
+    public string Description { get => _description; protected set => _description = value; }
+    public int Duration { get => _duration; protected set => _duration = value; }
 
     public void StartActivity()
     {
-        List<string> animationStrings = new List<string>
-   {
-       "|",
-       "/",
-       "-",
-       "\\",
-       "|",
-       "/",
-       "-",
-       "\\"
-   };
+        List<string> _animationStrings = new List<string>
+       {
+           "|",
+           "/",
+           "-",
+           "\\",
+           "|",
+           "/",
+           "-",
+           "\\"
+       };
 
-        int i = 0;
+        int _i = 0;
 
-        DateTime startTime = DateTime.Now;
-        DateTime endTime = startTime.AddSeconds(5);
+        DateTime _startTime = DateTime.Now;
+        DateTime _endTime = _startTime.AddSeconds(5);
 
         Console.WriteLine($"Starting {Name} activity...");
         Console.WriteLine(Description);
         Console.WriteLine($"Please prepare to begin. We will start in a few seconds...");
-        while (DateTime.Now < endTime)
+        while (DateTime.Now < _endTime)
         {
-            string s = animationStrings[i];
-            Console.Write(s);
+            string _s = _animationStrings[_i];
+            Console.Write(_s);
             Thread.Sleep(250);
             Console.Write("\b \b");
 
-            i++;
+            _i++;
 
-            if (i >= animationStrings.Count)
+            if (_i >= _animationStrings.Count)
             {
-                i = 0;
+                _i = 0;
             }
         }
         PerformActivity();

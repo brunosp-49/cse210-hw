@@ -6,9 +6,9 @@ public class BreathingActivity : MindfulnessActivity
 {
     public BreathingActivity(int duration)
     {
-        Name = "Breathing";
-        Description = "This activity will help you relax by guiding you through slow, deep breathing. Clear your mind and focus on your breathing.";
-        Duration = duration;
+        _name = "Breathing";
+        _description = "This activity will help you relax by guiding you through slow, deep breathing. Clear your mind and focus on your breathing.";
+        _duration = duration;
     }
 
     protected override void PerformActivity()

@@ -2,9 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 
+// I added two Creativity and Exceeding Requirements:
+// 1 - Keeping a log of how many times activities were performed(It shows when you finish the program)
+// 2 - Make sure no random prompts/questions are selected until they have all been used at least once in that session.
+
 public class Program
 {
-    private static Dictionary<string, int> activityCounts = new Dictionary<string, int>();
+    private static Dictionary<string, int> _activityCounts = new Dictionary<string, int>();
 
     public static void Main(string[] args)
     {
@@ -42,18 +46,18 @@ public class Program
             if (activity != null)
             {
                 activity.StartActivity();
-                if (activityCounts.ContainsKey(activity.Name))
+                if (_activityCounts.ContainsKey(activity.Name))
                 {
-                    activityCounts[activity.Name]++;
+                    _activityCounts[activity.Name]++;
                 }
                 else
                 {
-                    activityCounts[activity.Name] = 1;
+                    _activityCounts[activity.Name] = 1;
                 }
             }
         }
 
-        foreach (var pair in activityCounts)
+        foreach (var pair in _activityCounts)
         {
             Console.WriteLine($"{pair.Key}: {pair.Value}");
         }
